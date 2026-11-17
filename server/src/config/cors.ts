@@ -1,7 +1,7 @@
 import { CorsOptions } from "cors"
 import { env } from "./env"
 
-export const orsOptions: CorsOptions = {
+export const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
     if (!origin || env.CORS_ORIGINS.includes(origin)) {
       callback(null, true)
