@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { AppError } from "../../shared/error/app-error";
 import { userService, UserService } from "../service/user.service";
-import { buildPaginationMeta, sendSuccess } from "../../utils/reponse";
+import { buildPaginationMeta, sendSuccess } from "../../utils/response";
 import { ListUsersQuery, UpdateProfileBody, UpdateRoleBody } from "../validations/user.validation";
 
 function requireUser(req: Request): NonNullable<Request["user"]>{

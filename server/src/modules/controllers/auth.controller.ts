@@ -3,7 +3,7 @@ import { env } from '../../config/env.js';
 import { CreatedSession } from '../../types/auth.types.js';
 import { authService, AuthService } from '../service/auth.service.js';
 import { LoginBody, RegisterBody } from '../validations/auth.validation.js';
-import { sendNoContent, sendSuccess } from '../../utils/reponse.js';
+import { sendNoContent, sendSuccess } from '../../utils/response.js';
 import { AppError } from '../../shared/error/app-error.js';
 
 const baseCookieOptions: CookieOptions = {

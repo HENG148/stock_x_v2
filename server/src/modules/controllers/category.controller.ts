@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { sendNoContent, sendSuccess } from "../../utils/reponse";
+import { sendNoContent, sendSuccess } from "../../utils/response";
 import { categoryService, CategoryService } from "../service/category.service";
 import { CreateCategoryBody, updateCategoryBody } from "../validations/categories.validation";
 

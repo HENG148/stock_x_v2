@@ -2,7 +2,10 @@ import { createApp } from "./app";
 import { pool } from "./config/database";
 import { env } from "./config/env";
 import { logger } from "./config/logger";
+// import { bids, listings } from "./db/schema";
 import { authService } from "./modules/service/auth.service";
+import { bidService } from "./modules/service/bids.service";
+import { listingService } from "./modules/service/listing.service";
 
 const app = createApp();
 const server = app.listen(env.PORT, () => {
@@ -13,7 +16,11 @@ const purge = (): void => {
   authService
     .purgeExpiredSession()
     .then((removed) => logger.debug({ removed }, "Expired sessin purged"))
-    .catch((err: unknown) => logger.error({ err: err }, "Session purge failed"))
+    .catch((err: unknown) => logger.error({ err: err }, "Session purge failed"));
+  
+  Promise.all([listingService.expireOverdue(), bidService.expireOverdue()])
+    .then(([listings, bids]) => logger.debug({ listings, bids }, "Overdue asks and bid expired"))
+    .catch((err: unknown) => logger.error({ err: err }, "Expiry sweep failed"));
 };
 
 purge();
