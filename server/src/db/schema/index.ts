@@ -4,3 +4,7 @@ export * from "./category.schema";
 export * from "./products.schema"
 export * from "./listing.schema"
 export * from "./bids.schema"
+export * from "./order.schema"
+export * from "./watchlist.schema"
+export * from "./notification.schema"
+export * from "./email-verification.schema"

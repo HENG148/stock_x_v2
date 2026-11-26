@@ -15,6 +15,13 @@
       "when": 1794993436428,
       "tag": "0001_sleepy_timeslip",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795160974412,
+      "tag": "0002_sudden_wallop",
+      "breakpoints": true
     }
   ]
 }

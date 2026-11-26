@@ -6,6 +6,7 @@ import { globalRateLimiter } from "./middlewares/rate-limit.middleware";
 import cors from "cors"
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
+import { env } from "./config/env";
 import { corsOptions } from "./config/cors";
 import { notFoundHandler } from "./middlewares/not-found.middleware";
 import { errorHandler } from "./middlewares/error.middleware";
@@ -13,9 +14,9 @@ import { authRoutes } from "./modules/routes/auth.route";
 import { userRoutes } from "./modules/routes/user.route";
 import { categoryRoutes } from "./modules/routes/category.route";
 import { productRoutes } from "./modules/routes/product.route";
-import { env } from "./config/env";
 import { ListingRoute } from "./modules/routes/listing.route";
 import { route } from "./modules/routes/bids.route";
+import { watchlistRoute } from "./modules/routes/watchlist.route";
 
 export function createApp(): Express {
   const app = express();
@@ -36,6 +37,7 @@ export function createApp(): Express {
   v1.use("/products", productRoutes);
   v1.use("/listings", ListingRoute);
   v1.use("/bids", route);
+  v1.use("/watchlist", watchlistRoute)
   app.use('/api/v1', v1);
 
   app.use(notFoundHandler);

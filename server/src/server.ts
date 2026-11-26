@@ -2,14 +2,13 @@ import { createApp } from "./app";
 import { pool } from "./config/database";
 import { env } from "./config/env";
 import { logger } from "./config/logger";
-// import { bids, listings } from "./db/schema";
 import { authService } from "./modules/service/auth.service";
 import { bidService } from "./modules/service/bids.service";
 import { listingService } from "./modules/service/listing.service";
 
 const app = createApp();
 const server = app.listen(env.PORT, () => {
-  logger.info({ port: env.PORT, env: env.NODE_ENV }, "API listening");
+  logger.info({ port: env.PORT, env: env.NODE_ENV }, "API is listening");
 })
 
 const purge = (): void => {
